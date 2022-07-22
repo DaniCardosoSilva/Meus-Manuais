@@ -63,7 +63,7 @@ Passo 8: Atualização/Sincronização do repositório para o GitHub (na nuvem):
 	 - No terminal, para adicionar o novo arquivo ou uma nova atualização digite o comando "git add ." para adicionar todos os novos arquivos
 	 - Novamente digite o comando "git status" para verificar que agora a mensagem que apareceu em verde é que existe um novo arquivo/mudança e que o GitHub está entendo que tais arquivos é para ser considerado no controle de versões
 	 - Agora, digite o comando "git commit -m "uma mensagem/comentário de que está realizando uma alteração"". Exemplo: git commit -m "Inclusão do manual de instalação, criação, atualização e sincronização de um repositório no GitHub"
-	 - Novamente digite o ccomando "git status". Agora a mensagem que aparece no terminal é de que existe um commit local e caso queira mandar para a nuvem é preciso dá um push
+	 - Novamente digite o comando "git status". Agora a mensagem que aparece no terminal é de que existe um commit local e caso queira mandar para a nuvem é preciso dá um push
 	 - Agora, digite o comando "git push origin main" e clique no enter. Com este comando estamos enviando todos os commmits locais para a nuvem
 	 - Acesse o GitHub pelo navegador e verifique que houve a atualização/sincronização de tudo que foi feito localmente no repositório para o repositório que se encontra na nuvem
 	 
