@@ -1,4 +1,4 @@
-Manual de instalação do Git e Manual de criação, atualização e sincronização de repositório do GitHub no Windows
+**Manual de instalação do Git e Manual de criação, atualização e sincronização de repositório do GitHub no Windows**
 
 O que é o Git?
 
