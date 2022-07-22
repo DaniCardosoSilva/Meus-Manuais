@@ -1,0 +1,73 @@
+# Manual de instalação do Git e Manual de criação, atualização e sincronização de repositório do GitHub no Windows
+
+O que é o Git?
+
+O Git é um sistema de controle de versões distribuído, usado pricipalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo e é usado por diversos setores da sociedade para controlar as versões dos seus produtos.
+
+O que é o GitHub?
+
+O GitHub é uma plataforma de hospedagem de código-fonte e de arquivos com controle de versões utilizando o Git. A plataforma permite que programadores ou qualquer tipo de usuário cadastrado contribua em projetos privados e/ou Open Source de qualquer lugar do mundo.
+Referência bibliográfica: Wikipédia
+
+
+Passo 1: Instalar o Git:
+	 - Realizar o download do git de acordo com sistema operacioanl do seu computador. Site: https://git-scm.com/
+	 - No momento da instalação caso o sistema operacional seja Windows, na janela de setup é importante marcar/setar as opções "Git Bash Here" e "Git GUI Here"
+	 - Na janela de setup para as versões a partir da 2.30 em diante é importante também marcar a opção "Git Credential Manager Core"
+
+Passo 2: Criar uma conta no GitHub:
+         - Ao acessar a conta, clicar na opção "Settings" que se encontra no menu de perfil (ícone da sua imagem)
+	 - Na janela que se abriu, no menu do lado esquerdo, clicar na opção "SSH and GPG Keys"  
+
+Passo 3: Gerar chave SSH:
+         - Execute o Git Bash, no terminal digite "ssh-keygen -t ed25519 -C email" (o email é o que foi usado para criar a conta no GitHub) para gerar o par de chaves do ssh (pública e privada)
+	 - No terminal aparecerá o local onde será salvo as chaves, caso queira é possível alterar, no entanto, é indicado que se deixe como está
+	 - Ao dá enter, irá pedir para se digitar uma senha (passphase), digite-a e novamente dê um enter para criar a chave pública e a privada automaticamente
+ 	 - Acesse a pasta via terminal do Git Bash onde foi criada as chaves e em seguida com algum comando de visualização, como por exemplo, o "cat", acesse a chave pública e a copie
+	 
+Passo 4: Acessar o GitHub via navegador:
+	 - No GitHub acesse o local indicado no passo 2
+	 - No campo Key, cole a chave pública, em seguida clique no botão "Add SSH Key"
+
+Passo 5: Inicializar o SSH-Agent:
+	 - No terminal do Git Bash, digite "eval $(ssh-agent -s)" em seguida clique em enter
+	 - Logo depois, digite "ssh-add id_ed25519", onde id_ed25519 é a chave privada ssh, clique em enter
+ 	 - Posteriormente, digite a senha(passphase) que foi criada no passo 3
+
+Passo 6: Criar um repositório no GitHub:
+ 	 - No GitHub, no canto superior direito clicar na seta que se encontra ao lado do ícone de mais "+", e selecinar a opção "New Repository"
+	 - Na janela aberta, digite no campo "Repository name" o nome que deseja colocar no novo repositório
+	 - No campo "Description", digite uma descrição do repositório, em seguida marque a opção "Public" para que o seu repositório seja visto por qualquer pessoa, caso deseje	 
+	 - Marque a opção "Add a README file", e depois clique no botão "Create repository"
+	 - Caso queira editar o repositório, basta clicar no ícone de edição. Na janela aberta aparece a edição do repositório em formato markdown (linguagem de formatação)
+	 - Para verificar as atualizações feitas na edição do repositório, basta clicar no botão "Preview"
+	 - Na janela aberta é preciso commitar/persistir na branch principal (main/master) as atualizações/mudanças realizadas, para isso, basta clicar no botão "Commit changes"
+
+Passo 7: Clonar um repositório no GitHub:
+	 - No menu de perfil, que se encontra no canto superior esquerdo, clique na opção "Your repositories"
+	 - Escolha o repositório que deseja clonar
+	 - Na janela aberta, clique no botão "Code". Selecione a opção "HTTPS" e em seguida clique no botão de copiar para copiar o endereço do repositório
+	 - No Explorador de arquivos do Windows, selecione o local que deseja salvar a clonagem do repositório
+	 - Com o botão direito do mouse, selecione a opção "Git Bash Here"
+	 - No terminal do Git Bash, digite "git clone" e cole o endereço do repositório copiado no passo anterior", em seguida clique em enter. Exemplo: git clone https://github.com/techsamapaio-mendes/Meus-Manuais.git
+	 - Posteriormente aparecerá uma mensagem no terminal se deseja continuar se conectando ao GitHub, digite "yes" para confirmar. Ou não aparecerá tal mensagem e clonará automaticamente o repositório
+	 - No local selecionado para ficar o repositório se poderá visualizar o clone do mesmo (trouxe localmente o repositório para o computador)
+	 - No terminal do Git Bash, acesse via comando o local onde foi salvo o repositório
+	 - Para verificar o status do repositório, digite no termminal o comando "git status"
+	 
+Passo 8: Atualização/Sincronização do repositório para o GitHub (na nuvem):
+	 - Para qualquer atualização/mudança no repositório local é possível realizar a atualização/sincronização para o GitHub
+	 - No meu caso, estou criando manuais de diversas ferramentas de tecnologia para melhor fixação do aprendizado e também para casos de dúvidas utilizá-los. Logo criarei localmente os manuais e a medida que precisar sincronizá-los no GitHub estarei realizando os comandos adequados para isso. 
+	 - Criei este manual dentro da pasta "Meus-manuais", o qual clonei no passo 7. Com os comandos a seguir irei sincronizá-lo no servidor remoto do GitHub:
+	 - No terminal do Git Bash, digite o comando "git status". Como houve alteração/mudança no repositório aparecerá uma mensagem em vermelho informando que existe um arquivo novo a ser incluído no controle de versão
+	 - No terminal, para adicionar o novo arquivo ou uma nova atualização digite o comando "git add ." para adicionar todos os novos arquivos
+	 - Novamente digite o comando "git status" para verificar que agora a mensagem que apareceu em verde é que existe um novo arquivo/mudança e que o GitHub está entendo que tais arquivos é para ser considerado no controle de versões
+	 - Agora, digite o comando "git commit -m "uma mensagem/comentário de que está realizando uma alteração"". Exemplo: git commit -m "Inclusão do manual de instalação, criação, atualização e sincronização de um repositório no GitHub"
+	 - Novamente digite o ccomando "git status". Agora a mensagem que aparece no terminal é de que existe um commit local e caso queira mandar para a nuvem é preciso dá um push
+	 - Agora, digite o comando "git push origin main" e clique no enter. Com este comando estamos enviando todos os commmits locais para a nuvem
+	 - Acesse o GitHub pelo navegador e verifique que houve a atualização/sincronização de tudo que foi feito localmente no repositório para o repositório que se encontra na nuvem
+	 
+         
+
+ 
+ 	 
